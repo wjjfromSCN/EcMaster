@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 2.8.12)
+project(LinuxOSAL)
+aux_source_directory(. Linux_LIST)
+set(CMAKE_CXX_FLAGS "${CAMKE_CXX_FLAGS} -std=c++11")
+add_library(Linux ${Linux_LIST}  )
+target_link_libraries(Linux      pthread   )

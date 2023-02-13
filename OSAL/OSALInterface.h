@@ -1,8 +1,8 @@
 #pragma once
 #ifndef OSFACTORY
 #define OSFACTORY
-#include <functional>
 #include "OSALType.h"
+#include "OSALLog.h"
 namespace master
 {
     namespace osal
@@ -64,26 +64,5 @@ namespace master
             virtual INT32 EndPortSend(VOID *pData, UINT32 len, INT32 Flag) = 0;
             virtual INT32 EndPortRecv(VOID *RecvBuffer, UINT32 RecvLen, INT32 Flag) = 0;
         };
-        struct LOGInterface
-        {
-        public:
-            VOID Trace();
-            VOID Info();
-            VOID Debug();
-            VOID Warn()
-            {
-                
-            }
-            template <typename T>
-            VOID RegLogFun(std::function<void(T &&t)> &func)
-            {
-                printFunc = func;
-            }
-
-        private:
-            template <typename T>
-            std::function<void(T &&t)> printFunc;
-        };
-
     }
 }

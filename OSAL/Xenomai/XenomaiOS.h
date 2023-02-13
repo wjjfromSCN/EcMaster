@@ -7,19 +7,6 @@
 #include <alchemy/mutex.h>
 #include <alchemy/heap.h>
 #include <string>
-template <typename... Args>
-inline void RtPrintf(const Args &...args)
-{
-    rt_printf(args...);
-}
-
-#define __DEBUG //日志模块总开关，注释掉将关闭日志输出
-
-#ifdef __DEBUG
-#define DEBUG(format, ...) RtPrintf(format, ##__VA_ARGS__)
-#else
-#define DEBUG(format, ...)
-#endif
 
 //定义日志级别
 enum LOG_LEVEL
